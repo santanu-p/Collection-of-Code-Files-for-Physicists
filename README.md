@@ -30,6 +30,9 @@ Includes calculations tailored to the tidal properties and tidal Love numbers fo
 ### `tovsolver-master/`
 A sophisticated numerical solver combining a Fortran backend and Python frontend. It solves the TOV stellar structure equations for multi-fluid/QCD/MIT bag models and interpolates different equations of state natively.
 
+### `xCoba/`
+Contains Mathematica notebooks for coordinate-based calculations in General Relativity, featuring templates and documentation for working with coordinate systems and spacetime metrics.
+
 ### `xAct-Mathematica-template-notebooks-for-physics-main/`
 Starter Mathematica templates for the `xAct` tensor algebra system. Useful for initiating new projects in tensor calculus, featuring 3+1 splits and GR propagators.
 
