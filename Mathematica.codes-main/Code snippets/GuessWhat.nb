@@ -1,0 +1,59 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      1507,         51]
+NotebookOptionsPosition[      1161,         37]
+NotebookOutlinePosition[      1556,         53]
+CellTagsIndexPosition[      1513,         50]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"guess", "=", "10"}], ",", 
+    RowBox[{
+     RowBox[{"Floor", "[", 
+      RowBox[{"RealExponent", "[", 
+       RowBox[{"FunctionToMinimize", "[", "guess", "]"}], "]"}], "]"}], 
+     "\[GreaterEqual]", "OrderOfMagnitudeOfWhatYouExpext"}], ",", 
+    RowBox[{"guess", "=", 
+     RowBox[{"guess", "/", "10"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.8831269089384737`*^9, 3.88312693961261*^9}, {
+  3.883127010287963*^9, 
+  3.883127010469825*^9}},ExpressionUUID->"1d6596b0-eaee-4943-b9b4-\
+c3c838d77a3b"]
+},
+WindowSize->{808, 695},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"12.2 for Mac OS X x86 (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"2a42b353-9276-416e-b341-ff62bbe6858b"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 599, 15, 73, "Input",ExpressionUUID->"1d6596b0-eaee-4943-b9b4-c3c838d77a3b"]
+}
+]
+*)
+

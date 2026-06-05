@@ -1,0 +1,33 @@
+* Table of Contents                                                     :TOC:
+- [[#about][About]]
+- [[#references][References]]
+- [[#main-pdf-containing-the-assignments][Main pdf containing the assignments]]
+- [[#notebooks-containing-solutions][Notebooks containing solutions]]
+- [[#pdfs][PDFs]]
+
+* About
+  This repo is for codes and resources for the course on *Physics of Compact Objects* taught by Prof Ajith at ICTS Jan-April 2021.
+* References
+  - /Black Holes, White Dwarfs, and Neutron Stars: The Physics of Compact Objects/,  Stuart L. Shapiro Saul A. Teukolsky.
+  - http://www.ucolick.org/~woosley/ay220-19/papers/pols11.pdf
+* Main pdf containing the assignments
+This pdf is prepared by Prof. Ajith for the course and I have not
+contributed to this in any way.
+- [[./CompactObjTutorial.pdf][Assignments]]
+
+* Notebooks containing solutions
+- [[./Assignment-1/assignment-1.jl][Assignment-1]]
+- [[./Assignment-3/assignment-3.jl][Assignment-3]]
+- [[./Assignment-4/assignment-4.jl][Assignment-4]]
+- [[./Assignment-5/Assignment-5.jl][Assignment-5]]
+- [[./Assignment-6/xAct-tutorial/neutron-star-tov-xAct.nb][Assignment-6-derive-TOV]]. Click [[./Assignment-6/xAct-tutorial][here]] to learn more about tensor computations using ~xTensor~ and ~xCoba~ packages from ~xAct.~
+- [[./Assignment-6/tov.ipynb][Assignment-6-solve-TOV]] for solving TOV equation using python (uses ~solve_ivp~ from ~scipy~).
+- [[./Assignment-6/tov-sly.jl][Assignment-6-solve-TOV-SLy]] for solving TOV equation for neutron star using ~SLy~ equation of state using Julia (uses ~DifferentialEquations~ package).
+- [[./Assignment-7/geodesics-BHPToolkit.nb][Geodesics using Black Hole Perturbation Toolkit]]. Click [[./Assignment-7][here]] to learn more about tensor computations in coordinate basis using Black Hole Perturbation Toolkit.
+* PDFs
+- [[./Assignment-2/Assignmnet-2.pdf][Assignment-2]]
+- [[./Assignment-4/assignment-4-sol.pdf][Assignment-4]]
+- [[./Assignment-5/Assignment-5-prob-1.pdf][Assignment-5-prob-1]]
+- [[./Assignment-5/Assignment-5.pdf][Assignment-5-prob-2]]
+- [[./Assignment-6/xAct-tutorial/neutron-star-tov-xAct.pdf][Assignment-6-mathematica-notebook]]
+- [[./Assignment-7/geodesics-BHPToolkit.pdf][Geodesics in Schwarzschild metric using BHPtoolkit]]

@@ -1,0 +1,110 @@
+#+TITLE: Introduction to xAct for abstract tensor computer algebra in Mathematica
+#+AUTHOR: Md Arif Shaikh
+#+EMAIL: arifshaikh.astro@gmail.com
+#+DATE: Fri Feb 26 08:02:25 PM IST 2021
+
+* Table of Contents                                                     :TOC:
+- [[#installation][Installation]]
+- [[#using-xact-to-derive-the-tov-equation][Using xAct to derive the TOV equation]]
+  - [[#package-needed-for-the-current-tutorial][Package needed for the current tutorial]]
+  - [[#define-a-manifold][Define a manifold]]
+  - [[#define-a-metric-on-the-manifold][Define a metric on the manifold]]
+  - [[#define-a-chart-on-the-manifold][Define a chart on the manifold]]
+  - [[#define-scalar-functions][Define scalar functions]]
+  - [[#write-down-our-metric-in-the-coordinates][Write down our metric in the coordinates]]
+- [[#notebook-and-pdf][Notebook and PDF]]
+- [[#refs][Refs]]
+
+* Installation
+The installation guide is here http://xact.es/download/install. Follow
+the steps below.
+  - Download the ~xact~ package from the homepage at
+    http://xact.es/xTensor/.
+  - Extract the compressed file ~tar -xzvf xAct_1.1.4.tgz~.
+  - Place the extracted directory ~xAct~ inside the mathematica
+    installation directory. Follow the below instructions.
+  - In mathematica ~$UserBaseDirectory~ will give the directory where
+    mathematica is installed for the user. There is a dir called
+    ~Applications~. You have to place the ~xAct~ dir inside that
+    directory.
+  - ~mv xAct /home/<user>/.Mathematica/Applications/~.
+  - Linux:
+    - system-wide installation (requires root priviledges):
+      ~/usr/share/Mathematica/Applications/~
+    - single-user installation:
+      ~$HOME/.Mathematica/Applications/~
+  - Mac OS:
+    - system-wide installation (requires root priviledges):
+      ~/Library/Mathematica/Applications/~
+    - single-user installation:
+      ~/Users/<user>/Library/Mathematica/Applications/~
+* Using xAct to derive the TOV equation
+** Package needed for the current tutorial
+In the current tutorial we want to compute the components of the
+Einstein tensor in a particular basis. ~xTensor~ does not do this. For
+this we need ~xCoba~ which performs component calculations. However,
+~xCoba~ needs ~xTensor~ for it's internal calculations. So we need
+these two packages which are bundled inside the ~xAct~ package. 
+Once the installation is done, open a mathematica notebook and use
+ - ~<<xAct`xTensor`~ to load the ~xTensor~ package.
+ - ~<<xAct`xCoba`~ to load the ~xCoba~ package.
+** Define a manifold
+The first step is to define our manifold. We give a name for our
+manifold, dimension of the manifold and a set of abstract indices for
+the tensor on this manifold. The manifold is defined using the
+function ~DefManifold~.
+#+BEGIN_SRC wolfram
+DefManifold[M4, 4, {α,β,γ,μ,ν,λ,σ,η}]
+#+END_SRC
+~M4~ is the manifold we are defining, ~4~ is the dimension of this
+manifold and the greek symbols are abstract indices for the tensors on
+this manifold.
+
+** Define a metric on the manifold
+Now that we have defined our manifold, we will now define a metric on
+this manifold. We do this using the ~ DefMetric~ function.
+#+BEGIN_SRC wolfram
+DefMetric[-1, metric[-α, -β], CD, {";", "∇"}]
+#+END_SRC
+~-1~ is the sign of the determinant of the metric.
+
+** Define a chart on the manifold
+We want to work in a particular coordinate basis. We will work in the
+spherical polar coordinate basis. For this we need to define our
+chart. This is done using the function ~DefChart~
+#+BEGIN_SRC wolfram
+DefChart[cb, M4, {0, 1, 2, 3}, {t[], r[], θ[], φ[]}]
+#+END_SRC
+
+The arguments are the name for our chart ~cb~, the manifold ~M4~ on which
+we are defining this chart, indices for the coordinate and
+coordinates.
+
+** Define scalar functions
+We also need to define any scalar functions we will need later. For
+the stationary spherically symmetric space time we need to define the
+two scalar functions ~Λ~ and ~Φ~. We use the function
+~DefScalarFunction~ to define these.
+#+BEGIN_SRC wolfram
+DefScalarFunction[Λ]
+DefScalarFunction[Φ]
+#+END_SRC
+
+** Write down our metric in the coordinates
+Now that we are set, let's write the metric in the coordinates. This
+we do by first writing the metric in a matrix form.
+#+BEGIN_SRC wolfram
+met = DiagonalMatrix[{-Exp[2 Φ[r[]]], Exp[2 Λ[r[]]], r[]^2, r[]^2 Sin[θ[]]^2}]
+#+END_SRC
+After that we define a ~CTensor~ from the ~met~ in our coordinate
+basis ~cb~
+#+BEGIN_SRC wolfram
+g = CTensor[met, {-cb, -cb}]
+#+END_SRC
+and then set ~g~ as the metric for vector bundle of the basis ~cb~.
+
+* Notebook and PDF
+ - [[./tov-xAct.nb][Notebook]]
+ - [[./neutron-star-tov-xAct.pdf][PDF version of the notebook]]
+* Refs
+  - [[http://www.madscitech.org/GRBasis.pdf][GR Calculations in Specific Bases Using Mathematica]] by George E. Hrabovsky.
